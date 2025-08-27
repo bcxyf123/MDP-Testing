@@ -1,0 +1,36 @@
+env:
+  name: gridworld
+  env_config: {}
+  Acrobot:
+    id: Acrobot-v1
+    observation_dim: 6
+    action_dim: 1
+  CartPole:
+    id: CartPole-v1
+    observation_dim: 4
+    action_dim: 2
+train:
+  total_timesteps: 100000
+  save_dir: save/model/forward_model
+  deterministic: false
+  train_mode: false
+  model_num: 5
+  load_dir: save/model/policy
+  num_eval_episodes: 10
+  collect_episodes: 20
+  collect_steps: 1000
+  policy_id: 0
+  map_id: 0
+  render: true
+  cuda: cuda:0
+detect:
+  render: true
+  n_trials: 10
+  n_maps: 10
+  policy_id: 0
+  default_prob: 0.1
+  test_id: 6
+  param_name: LINK_LENGTH_2
+  collect_trajs: 20
+  value_iterations: 500
+  save_dir: save/detect

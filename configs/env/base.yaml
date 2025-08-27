@@ -1,0 +1,9 @@
+Acrobot:
+  id: Acrobot-v1
+  observation_dim: 6
+  action_dim: 1
+
+CartPole:
+  id: CartPole-v1
+  observation_dim: 4
+  action_dim: 2
