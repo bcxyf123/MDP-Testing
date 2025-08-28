@@ -134,4 +134,6 @@ dmypy.json
 misc/
 log/
 
-/algo/pedm
+save/
+results/
+testing/scripts
