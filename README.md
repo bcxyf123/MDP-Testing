@@ -62,7 +62,7 @@ modify the parameters in the `testing/configs/maze.yaml` or create a custom conf
 # Run gym environment MDP testing
 python -m testing.examples.gym
 ```
-modify the parameters in the `testing/configs/maze.yaml` or create a custom config file
+modify the parameters in the `testing/configs/gym.yaml` or create a custom config file
 
 
 <!-- ## 📊 Statistical Tests
