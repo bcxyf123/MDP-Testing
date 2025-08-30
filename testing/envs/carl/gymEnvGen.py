@@ -5,6 +5,7 @@ from carl.context.selection import StaticSelector
 from carl.envs import CARLAcrobot, CARLCartPole, CARLMountainCar, CARLBipedalWalker, CARLLunarLander, CARLVehicleRacing
 
 
+
 def generate_CartPoleEnvs(parameter):
     # {'masscart': 1.0, 'masspole': 0.1, 'length': 0.5, 'force_mag': 10.0, 'tau': 0.02, 'theta_threshold_radians': 12.0, 'x_threshold': 2.4}
 
@@ -431,3 +432,19 @@ def generate_VehicleRacingEnvs(parameter):
     env = CARLVehicleRacing(context_selector=StaticSelector(contexts=contexts))
 
     return env, contexts
+
+
+
+
+def gen_gym(env_name, parameter):
+    
+    if 'CartPole' in env_name:
+        return generate_CartPoleEnvs(parameter)
+    elif 'Acrobot' in env_name:
+        return generate_AcrobotEnvs(parameter)
+    elif 'LunarLander' in env_name:
+        return generate_LunarLanderEnvs(parameter)
+    elif 'VehicleRacing' in env_name:
+        return generate_VehicleRacingEnvs(parameter)
+    else:
+        raise ValueError(f"Unknown environment: {env_name}")

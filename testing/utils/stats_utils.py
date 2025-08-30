@@ -54,7 +54,7 @@ def compute_mann_whitney_u(
     
     n1, n2 = len(x), len(y)
     combined = np.concatenate([x, y])
-    ranks = np.argsort(np.argsort(combined)) + 1  # 排序后分配秩值
+    ranks = np.argsort(np.argsort(combined)) + 1  # Assign rank values after sorting
     ranks_x1 = ranks[:n1]
     ranks_x2 = ranks[n1:]
     R1, R2 = np.sum(ranks_x1), np.sum(ranks_x2)
@@ -71,7 +71,7 @@ def compute_rank_t(
     
     n1, n2 = len(x), len(y)
     combined = np.concatenate([x, y])
-    ranks = np.argsort(np.argsort(combined)) + 1  # 排序后分配秩值
+    ranks = np.argsort(np.argsort(combined)) + 1  # Assign rank values after sorting
     ranks_x1 = ranks[:n1]
     ranks_x2 = ranks[n1:]
     t = compute_t(ranks_x1, ranks_x2)
@@ -124,7 +124,7 @@ def ind_t_test(
     alpha: float = 0.05,
     ) -> Tuple[float, float]:
     
-    t_stat, p_value = ttest_ind(x, y, equal_var=True)  # 假设方差相等
+    t_stat, p_value = ttest_ind(x, y, equal_var=True)  # Assume equal variances
     if p_value < alpha:
         return True
     else:
@@ -136,7 +136,7 @@ def welch_t_test(
     alpha: float = 0.05,
     ) -> Tuple[float, float]:
     
-    t_stat, p_value = ttest_ind(x, y, equal_var=False)  # 假设方差不等
+    t_stat, p_value = ttest_ind(x, y, equal_var=False)  # Assume unequal variances
     if p_value < alpha:
         return True
     else:
@@ -162,7 +162,7 @@ def rank_t_test(
     
     n1, n2 = len(x), len(y)
     combined = np.concatenate([x, y])
-    ranks = np.argsort(np.argsort(combined)) + 1  # 排序后分配秩值
+    ranks = np.argsort(np.argsort(combined)) + 1  # Assign rank values after sorting
     ranks_x1 = ranks[:n1]
     ranks_x2 = ranks[n1:]
     

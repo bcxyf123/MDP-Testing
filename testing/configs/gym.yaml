@@ -1,0 +1,50 @@
+# @package _global_
+defaults:
+  - _self_
+
+# Environment settings
+env:
+  env_name: "Acrobot-v1"  # Gym environment ID
+  param_name: "LINK_MASS_2"  # Parameter to modify for test environment
+  load_base_policy_path: "save/policy/gym/Acrobot-v1.zip"  # Path to trained policy
+  default_context_id: 0
+  test_context_id: 
+
+# Training configuration
+train:
+  algorithm: "PPO"
+  policy: "MlpPolicy"
+  total_timesteps: 1000000
+  verbose: 1
+  
+  # Training parameters
+  gamma: 0.99
+  n_steps: 2048
+  ent_coef: 0.0
+  learning_rate: 0.0003
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  batch_size: 64
+  n_epochs: 10  
+  clip_range: 0.2
+  device: "cuda"
+  tensorboard_log: "./models"
+  
+  # Model save paths
+  save_dir: "./models"
+  load_dir: "./models"
+
+# Detection configuration  
+detect:
+  detector_type: "t"  # Detector type
+  data_type: "return"
+  gamma: 0.99
+  
+  # Episode settings
+  num_episodes_default: 10
+  num_episodes_test: 10
+  
+  # Confidence interval construction
+  construct_CI: true
+  sample_method: "MC"
+  n_MC_samples: 1000

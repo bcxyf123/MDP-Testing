@@ -389,7 +389,7 @@ class MDPDetector(Base_Detector):
         print(f'mean: {np.mean(stats):.2f}, std: {np.std(stats):.2f}')
         # print("Sampled LRT stats head:", stats[:10])
 
-        # --------- 修复KDE报错的判断 ----------
+        # --------- Fix KDE error handling ----------
         if np.std(stats) < 1e-8:
             print("Warning: All statistics are the same, cannot fit KDE. Using a tiny rejection region around the constant value.")
             constant = stats[0]

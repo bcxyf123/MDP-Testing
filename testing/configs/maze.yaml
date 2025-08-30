@@ -1,0 +1,49 @@
+# @package _global_
+defaults:
+  - _self_
+
+# Environment settings
+env:
+  map_size: [4, 8]
+  start_loc: [3, 0]
+  goal_loc: [0, 7]
+  deterministic: false
+  
+  # Map configuration
+  default_map_id: 0
+  test_map_id: 0
+  
+  # Probability settings
+  default_prob: 0.9
+  test_prob: 0.8
+
+# Training configuration
+train:
+  algorithm: "PPO"
+  policy: "MlpPolicy"
+  total_timesteps: 100000
+  verbose: 1
+  
+  # Model save paths
+  save_path: "save/policy/maze/ppo"
+
+# Detection configuration  
+detect:
+  detector_type: "t"
+  data_type: "return"
+  gamma: 0.99
+  
+  # Episode settings
+  num_episodes_default: 10
+  num_episodes_test: 10
+  
+  # Confidence interval construction
+  construct_CI: true
+  sample_method: "MC"
+  n_MC_samples: 1000
+
+  load_base_policy_path: "save/policy/maze/ppo.zip"
+
+# Policy configuration
+policy:
+  q_policy_path: "testing/scripts/save/policy/maze/map_0_policy_2000.csv"

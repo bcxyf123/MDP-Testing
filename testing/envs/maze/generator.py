@@ -191,13 +191,13 @@ def is_path_exists(maze, start, end):
         
         maze[row][col] = 1
 
-        if dfs(row - 1, col):  # 上
+        if dfs(row - 1, col):  # Up
             return True
-        if dfs(row + 1, col):  # 下
+        if dfs(row + 1, col):  # Down
             return True
-        if dfs(row, col - 1):  # 左
+        if dfs(row, col - 1):  # Left
             return True
-        if dfs(row, col + 1):  # 右
+        if dfs(row, col + 1):  # Right
             return True
         
         # maze[row][col] = 0
